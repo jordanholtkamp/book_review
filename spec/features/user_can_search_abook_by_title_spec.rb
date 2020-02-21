@@ -15,6 +15,11 @@ RSpec.describe 'as a user' do
       expect(page).to have_content('Sally Rooney')
       expect(page).to have_content('Psychophysiology')
       expect(page).to have_content('Emotions')
+
+      expect(page).to have_css(".reviews", count: 2)
+      within(first(".reviews")) do
+        expect(page).to have_content("Rooney’s second novel tracks two gifted but troubled teenagers across four years of friendship and occasional romance.")
+      end
     end
   end
 end

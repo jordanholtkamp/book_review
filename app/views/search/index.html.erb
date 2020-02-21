@@ -1,1 +1,19 @@
-<h1>@title</h1>
+<h1><%= book.title %></h1>
+<h3>By: <%= book.author %></h3>
+
+
+<h6>
+Genres:
+<% book.genres.each do |genre| %>
+  <ul>
+    <li><%= genre %></li>
+  </ul>
+<% end %>
+  </h6>
+
+Reviews: 
+<% book.reviews.each do |review_info| %>
+  <ul class="reviews">
+    <li><%= review_info['summary'] %></li>
+  </ul>
+<% end %>
