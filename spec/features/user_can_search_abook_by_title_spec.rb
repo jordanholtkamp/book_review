@@ -5,13 +5,16 @@ RSpec.describe 'as a user' do
     it 'allows me to search for a book and see book info and reviews' do
       visit '/'
 
-      fill_in :title, with: 'the man who saw everything'
+      fill_in :title, with: 'normal people'
 
-      click_on 'Find Book'
+      click_button 'Find Book'
 
-      expect(current_path).to eq('/search')
+      expect(current_path).to eq(search_path)
 
-      
+      expect(page).to have_content('Normal People')
+      expect(page).to have_content('Sally Rooney')
+      expect(page).to have_content('Psychophysiology')
+      expect(page).to have_content('Emotions')
     end
   end
 end
